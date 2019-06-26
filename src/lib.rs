@@ -22,7 +22,9 @@ cfg_if! {
 }
 
 mod cpu;
+mod misc;
 mod network;
 
 pub use cpu::Cpu;
+pub use misc::Misc;
 pub use network::Network;

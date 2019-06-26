@@ -27,3 +27,12 @@ impl fmt::Debug for CoreLoadInfo {
 }
 
 pub type CoresLoadInfo = Vec<CoreLoadInfo>;
+
+#[derive(Debug, Copy, Clone)]
+pub struct LoadAvg(pub f64, pub f64, pub f64);
+
+impl Default for LoadAvg {
+    fn default() -> LoadAvg {
+        unsafe { std::mem::zeroed() }
+    }
+}

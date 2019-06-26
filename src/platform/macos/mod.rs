@@ -3,6 +3,7 @@ extern crate ifstructs;
 extern crate ioctl_rs;
 extern crate smc;
 
+pub mod boottime;
 pub mod cpu;
 pub mod fs;
 pub mod mach;
@@ -19,6 +20,7 @@ pub mod imp {
 
     pub mod cpu {
         pub use super::super::cpu::load;
+        pub use crate::platform::unix::cpu::loadavg;
     }
 
     pub mod fs {
@@ -35,5 +37,9 @@ pub mod imp {
 
     pub mod thermal {
         pub use super::super::thermal::{cpus, fans};
+    }
+
+    pub mod boottime {
+        pub use super::super::boottime::get;
     }
 }

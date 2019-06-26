@@ -1,5 +1,5 @@
 use crate::platform::imp::cpu;
-use crate::types::cpu::{CoreLoadInfo, CoresLoadInfo};
+use crate::types::cpu::{CoreLoadInfo, CoresLoadInfo, LoadAvg};
 use crate::Timer;
 
 #[derive(Clone)]
@@ -70,6 +70,10 @@ impl Cpu {
 
     pub fn load(&self) -> Option<CoresLoadInfo> {
         self.timer.get()?.current
+    }
+
+    pub fn loadavg(&self) -> Option<LoadAvg> {
+        cpu::loadavg()
     }
 
     pub fn close(self) {

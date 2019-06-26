@@ -1,6 +1,7 @@
 extern crate tomography;
 
 fn main() {
+    let misc = tomography::Misc::new();
     let cpu = tomography::Cpu::new();
     let net = tomography::Network::new();
 
@@ -8,7 +9,9 @@ fn main() {
     std::thread::sleep(std::time::Duration::from_secs(2));
 
     println!("{:#?}", cpu.load());
+    println!("{:#?}", cpu.loadavg());
     println!("{:#?}", net.interfaces());
+    println!("{:#?}", misc.boot_time());
 
     cpu.close();
     net.close();
