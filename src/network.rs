@@ -1,6 +1,6 @@
-use crate::Timer;
-use crate::types::network::NetworkInterface;
 use crate::platform::imp::network;
+use crate::types::network::NetworkInterface;
+use crate::Timer;
 
 use std::collections::HashMap;
 
@@ -28,8 +28,10 @@ fn all() -> Option<HashMap<String, NetworkInterface>> {
 impl Network {
     pub fn new() -> Network {
         Network {
-            timer: Timer::new(None, std::time::Duration::from_secs(1), move |state, provider| {
-                match state {
+            timer: Timer::new(
+                None,
+                std::time::Duration::from_secs(1),
+                move |state, provider| match state {
                     None => {
                         provider.get();
                         let prev = all()?;
@@ -37,15 +39,17 @@ impl Network {
                             prev,
                             current: None,
                         })
-                    },
+                    }
                     Some(state) => {
                         let next_prev = all()?;
                         let perfecter = match provider.get() {
-                            None => return Some(State {
-                                prev: next_prev,
-                                current: None,
-                            }),
-                            Some(p) => p
+                            None => {
+                                return Some(State {
+                                    prev: next_prev,
+                                    current: None,
+                                })
+                            }
+                            Some(p) => p,
                         };
 
                         let prev = state.prev;
@@ -64,8 +68,8 @@ impl Network {
                             current: Some(current),
                         })
                     }
-                }
-            }),
+                },
+            ),
         }
     }
 

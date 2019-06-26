@@ -18,9 +18,7 @@ impl<T: Clone + Send + 'static> PerfectedStatedTimer<T> {
         let provider = Arc::new(PerfecterProvider::new(duration));
         // let p = provider.clone();
 
-        let timer = StatedTimer::new(initial, duration, move |state| {
-            f(state, provider.clone())
-        });
+        let timer = StatedTimer::new(initial, duration, move |state| f(state, provider.clone()));
 
         PerfectedStatedTimer {
             timer,
