@@ -14,16 +14,25 @@ impl FileSystem {
 
     pub fn for_device<P: AsRef<Path>>(&self, device: P) -> Option<crate::types::fs::FileSystem> {
         let device = device.as_ref().canonicalize().ok()?;
-        self.all()?.into_iter().filter(|fs| fs.device == device).next()
+        self.all()?
+            .into_iter()
+            .filter(|fs| fs.device == device)
+            .next()
     }
 
     pub fn for_mountpoint<P: AsRef<Path>>(&self, path: P) -> Option<crate::types::fs::FileSystem> {
         let path = path.as_ref().canonicalize().ok()?;
-        self.all()?.into_iter().filter(|fs| fs.mountpoint == path).next()
+        self.all()?
+            .into_iter()
+            .filter(|fs| fs.mountpoint == path)
+            .next()
     }
 
     pub fn for_label(&self, label: &str) -> Option<crate::types::fs::FileSystem> {
-        self.all()?.into_iter().filter(|fs| fs.label == label).next()
+        self.all()?
+            .into_iter()
+            .filter(|fs| fs.label == label)
+            .next()
     }
 
     pub fn for_uuid(&self, uuid: &str) -> Option<crate::types::fs::FileSystem> {
@@ -32,6 +41,9 @@ impl FileSystem {
 
     pub fn containing_path<P: AsRef<Path>>(&self, path: P) -> Option<crate::types::fs::FileSystem> {
         let path = path.as_ref().canonicalize().ok()?;
-        self.all()?.into_iter().filter(|fs| path.starts_with(&fs.mountpoint)).next()
+        self.all()?
+            .into_iter()
+            .filter(|fs| path.starts_with(&fs.mountpoint))
+            .next()
     }
 }

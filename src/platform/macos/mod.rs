@@ -29,7 +29,7 @@ pub mod imp {
     }
 
     pub mod mem {
-        pub use super::super::mem::ram;
+        pub use super::super::mem::{ram, swap};
     }
 
     pub mod power {

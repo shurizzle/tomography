@@ -1,6 +1,6 @@
 use crate::types::{mem::*, Error, Result};
 
-use libc::{c_int, c_void, size_t, sysctl, CTL_HW, HW_MEMSIZE};
+use libc::{c_int, c_void, size_t, sysctl, xsw_usage, CTL_HW, CTL_VM, HW_MEMSIZE, VM_SWAPUSAGE};
 
 use super::mach::{
     host_info_t, host_name_port_t, host_statistics, mach_host_self, mach_msg_type_number_t,
@@ -16,7 +16,7 @@ fn get_phys_ram() -> Result<u64> {
         sysctl(
             mib.as_ptr() as *mut c_int,
             2,
-            &mut physical_memory as *mut i64 as *mut c_void,
+            &mut physical_memory as *mut _ as *mut c_void,
             &mut length,
             std::ptr::null_mut(),
             0,
@@ -54,6 +54,33 @@ pub fn ram() -> Result<RAM> {
         Ok(RAM {
             used: (mem_used as f64 / mem_total as f64 * mem_phys as f64) as u64,
             total: mem_phys,
+        })
+    }
+}
+
+pub fn swap() -> Result<Swap> {
+    let mib: [c_int; 2] = [CTL_VM, VM_SWAPUSAGE];
+    let mut res: xsw_usage = unsafe { std::mem::zeroed() };
+    let mut length: size_t = std::mem::size_of::<xsw_usage>() as size_t;
+
+    let err = unsafe {
+        sysctl(
+            mib.as_ptr() as *mut c_int,
+            2,
+            &mut res as *mut _ as *mut c_void,
+            &mut length,
+            std::ptr::null_mut(),
+            0,
+        )
+    };
+
+    if err != 0 {
+        Err(Error::from_errno())
+    } else {
+        Ok(Swap {
+            used: res.xsu_used,
+            free: res.xsu_avail,
+            total: res.xsu_total,
         })
     }
 }

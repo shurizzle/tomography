@@ -3,6 +3,7 @@ extern crate tomography;
 fn main() {
     let misc = tomography::Misc::new();
     let fs = tomography::FileSystem::new();
+    let mem = tomography::Memory::new();
     let cpu = tomography::Cpu::new();
     let net = tomography::Network::new();
 
@@ -14,6 +15,8 @@ fn main() {
     println!("{:#?}", net.interfaces());
     println!("{:#?}", misc.boot_time());
     println!("{:#?}", fs.all());
+    println!("{:#?}", mem.ram());
+    println!("{:#?}", mem.swap());
 
     cpu.close();
     net.close();
