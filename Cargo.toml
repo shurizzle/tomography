@@ -19,7 +19,8 @@ errno = "0.2.4"
 rug = "1.4.0"
 
 [target.'cfg(target_os = "macos")'.dependencies]
-core-foundation = "0.6.3"
+uuid = "0.5"
+core-foundation = { version = "0.6.3", features = ["with-uuid"] }
 smc = "0.1.0"
 ioctl-rs = "0.2.0"
 ifstructs = "0.1.1"

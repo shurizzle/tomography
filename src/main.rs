@@ -2,6 +2,7 @@ extern crate tomography;
 
 fn main() {
     let misc = tomography::Misc::new();
+    let fs = tomography::FileSystem::new();
     let cpu = tomography::Cpu::new();
     let net = tomography::Network::new();
 
@@ -12,6 +13,7 @@ fn main() {
     println!("{:#?}", cpu.loadavg());
     println!("{:#?}", net.interfaces());
     println!("{:#?}", misc.boot_time());
+    println!("{:#?}", fs.all());
 
     cpu.close();
     net.close();

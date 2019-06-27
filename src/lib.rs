@@ -4,6 +4,7 @@ extern crate cfg_if;
 extern crate errno;
 extern crate libc;
 extern crate rug;
+extern crate uuid;
 
 pub mod perfecter;
 pub mod timer;
@@ -24,7 +25,9 @@ cfg_if! {
 mod cpu;
 mod misc;
 mod network;
+mod fs;
 
 pub use cpu::Cpu;
 pub use misc::Misc;
 pub use network::Network;
+pub use fs::FileSystem;

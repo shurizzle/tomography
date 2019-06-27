@@ -5,6 +5,7 @@ extern crate smc;
 
 pub mod boottime;
 pub mod cpu;
+pub mod disk_arbitration;
 pub mod fs;
 pub mod mach;
 pub mod mem;
