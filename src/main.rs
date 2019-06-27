@@ -7,16 +7,18 @@ fn main() {
     let cpu = tomography::Cpu::new();
     let net = tomography::Network::new();
 
-    println!("Waiting 2 seconds...");
-    std::thread::sleep(std::time::Duration::from_secs(2));
+    println!("Waiting 1 second...");
 
-    println!("{:#?}", cpu.load());
-    println!("{:#?}", cpu.loadavg());
-    println!("{:#?}", net.interfaces());
-    println!("{:#?}", misc.boot_time());
-    println!("{:#?}", fs.all());
-    println!("{:#?}", mem.ram());
-    println!("{:#?}", mem.swap());
+    loop {
+        std::thread::sleep(std::time::Duration::from_secs(1));
+        println!("{:#?}", cpu.load());
+        println!("{:#?}", cpu.loadavg());
+        println!("{:#?}", net.interfaces());
+        println!("{:#?}", misc.boot_time());
+        println!("{:#?}", fs.all());
+        println!("{:#?}", mem.ram());
+        println!("{:#?}", mem.swap());
+    }
 
     cpu.close();
     net.close();
