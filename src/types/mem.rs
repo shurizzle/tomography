@@ -41,7 +41,7 @@ impl fmt::Debug for RAM {
 
 impl fmt::Debug for Swap {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        f.debug_struct("RAM")
+        f.debug_struct("Swap")
             .field("used", &self.used)
             .field("free", &self.free)
             .field("total", &self.total)
