@@ -27,9 +27,11 @@ mod fs;
 mod mem;
 mod misc;
 mod network;
+mod thermal;
 
 pub use cpu::Cpu;
 pub use fs::FileSystem;
 pub use mem::Memory;
 pub use misc::Misc;
 pub use network::Network;
+pub use thermal::Thermal;

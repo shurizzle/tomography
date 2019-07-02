@@ -37,7 +37,7 @@ pub mod imp {
     }
 
     pub mod thermal {
-        pub use super::super::thermal::{cpus, fans};
+        pub use super::super::thermal::{cpus, fans, custom};
     }
 
     pub mod boottime {
