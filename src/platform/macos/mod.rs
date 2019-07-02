@@ -33,11 +33,11 @@ pub mod imp {
     }
 
     pub mod power {
-        pub use super::super::power::all;
+        pub use super::super::power::sources;
     }
 
     pub mod thermal {
-        pub use super::super::thermal::{cpus, fans, custom};
+        pub use super::super::thermal::{cpus, custom, fans};
     }
 
     pub mod boottime {

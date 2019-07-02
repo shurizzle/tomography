@@ -5,6 +5,7 @@ fn main() {
     let fs = tomography::FileSystem::new();
     let mem = tomography::Memory::new();
     let therm = tomography::Thermal::new();
+    let power = tomography::Power::new();
     let cpu = tomography::Cpu::new();
     let net = tomography::Network::new();
 
@@ -22,6 +23,7 @@ fn main() {
         println!("{:#?}", therm.fans());
         println!("{:#?}", therm.cpus());
         println!("{:#?}", therm.custom("TA0P"));
+        println!("{:#?}", power.sources());
     }
 
     // cpu.close();

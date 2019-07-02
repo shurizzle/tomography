@@ -258,7 +258,7 @@ fn description(blob: &CFType, ps: &CFType) -> Option<Battery> {
     }
 }
 
-fn sources(i: &CFType) -> Option<Vec<Battery>> {
+fn batteries(i: &CFType) -> Option<Vec<Battery>> {
     match list(i) {
         None => None,
         Some(list) => Some(
@@ -303,7 +303,7 @@ fn adapter() -> Option<Adapter> {
     }
 }
 
-pub fn all() -> PowerSources {
+pub fn sources() -> PowerSources {
     match info() {
         None => PowerSources {
             sources: None,
@@ -311,7 +311,7 @@ pub fn all() -> PowerSources {
             adapter: None,
         },
         Some(i) => PowerSources {
-            sources: sources(&i),
+            sources: batteries(&i),
             power_type: power_type(&i),
             adapter: adapter(),
         },
