@@ -310,7 +310,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "smc"
-version = "0.2.0"
+version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "four-char-code 0.0.4 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -350,7 +350,7 @@ dependencies = [
  "ioctl-rs 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "libc 0.2.58 (registry+https://github.com/rust-lang/crates.io-index)",
  "rug 1.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "smc 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "smc 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "uuid 0.5.1 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
@@ -424,7 +424,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 "checksum rug 1.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "506990df1d79c2b930af2e53e0ea80c1d870a0bf00ae4b4afa11e1d6c0940076"
 "checksum rustc-demangle 0.1.15 (registry+https://github.com/rust-lang/crates.io-index)" = "a7f4dccf6f4891ebcc0c39f9b6eb1a83b9bf5d747cb439ec6fba4f3b977038af"
 "checksum scoped_threadpool 0.1.9 (registry+https://github.com/rust-lang/crates.io-index)" = "1d51f5df5af43ab3f1360b429fa5e0152ac5ce8c0bd6485cae490332e96846a8"
-"checksum smc 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "d8b0b23e5915d267404ea9400f646a083144f1144f7a837345e5b0f422d6b481"
+"checksum smc 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "9260f2216c7f8cff16e6bdb19f06c9e2beb5beddef54376713146c740792cb97"
 "checksum syn 0.15.38 (registry+https://github.com/rust-lang/crates.io-index)" = "37ea458a750f59ab679b47fef9b6722c586c5742f4cfe18a120bbc807e5e01fd"
 "checksum synstructure 0.10.2 (registry+https://github.com/rust-lang/crates.io-index)" = "02353edf96d6e4dc81aea2d8490a7e9db177bf8acb0e951c24940bf866cb313f"
 "checksum unicode-xid 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "fc72304796d0818e357ead4e000d19c9c174ab23dc11093ac919054d20a6a7fc"
