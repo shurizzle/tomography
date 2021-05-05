@@ -116,7 +116,7 @@ fn dictionary_to_Battery(dic: CFDictionary<CFString, CFString>) -> Battery {
             } else if key == "Type" {
                 power_type =
                     Some(CFString::wrap_under_get_rule(values[i] as CFStringRef).to_string());
-            } else if key == "BatteryHealth" {
+            } else if key == "BatteryHealth" || key == "BatteryHealthCondition" {
                 health = Some(CFString::wrap_under_get_rule(values[i] as CFStringRef).to_string());
             } else {
                 println!("!! {}", key);
@@ -126,7 +126,7 @@ fn dictionary_to_Battery(dic: CFDictionary<CFString, CFString>) -> Battery {
 
     Battery {
         present: present.unwrap(),
-        charged: charged,
+        charged,
         state: state.unwrap(),
         current: current.unwrap(),
         finishing_charge: finishing_charge.unwrap_or(false),
