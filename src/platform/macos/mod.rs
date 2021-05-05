@@ -2,6 +2,7 @@ extern crate core_foundation;
 extern crate ifstructs;
 extern crate ioctl_rs;
 extern crate smc;
+extern crate uuid;
 
 pub mod boottime;
 pub mod cpu;

@@ -4,8 +4,6 @@ extern crate cfg_if;
 extern crate errno;
 extern crate libc;
 extern crate rug;
-#[cfg(unix)]
-extern crate uuid;
 
 pub mod perfecter;
 pub mod timer;
